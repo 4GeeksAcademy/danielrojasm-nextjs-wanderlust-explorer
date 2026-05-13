@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wanderlust Explorer — App Interactiva con React y Next.js
 
-## Getting Started
+- Aplicacion multipagina en Next.js (App Router) para descubrir, filtrar y guardar experiencias de viaje.
 
-First, run the development server:
+## Especificaciones
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Tailwind CSS.
+- React 19.
+- Next.js.
+- Una aplicación multipágina donde los usuarios puedan explorar, buscar y filtrar experiencias sin recargar la página.
+- Dataset será un array de 100 experiencias.
+- La búsqueda y los filtros vivan en la URL para que los usuarios puedan compartir enlaces como /experiences?search=vela&category=adventure&destination=Croatia y aterrizar directamente en una vista prefiltrada.
+- No usar ninguna librería externa de gestión de estado (Redux, Zustand, etc.). Todo el estado debe vivir en el useState nativo de React y pasarse mediante props o custom hooks.
+- Mobile first.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Páginas requeridas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Home
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Sección hero con un botón que navega a /experiences.
 
-## Learn More
+#### /experiences — Explorador
 
-To learn more about Next.js, take a look at the following resources:
+- Listado completo de tarjetas con barra de búsqueda.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Al menos dos filtros (categoría y destino). 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- La búsqueda y los filtros activos deben reflejarse en la URL como query parameters y deben prerrellenar los inputs al cargar la página.
 
-## Deploy on Vercel
+#### /experiences/[id] — Detalle
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Información completa de una experiencia, obtenida del dataset local por su ID.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### /favorites — Favoritos
+
+- Lista de experiencias que el usuario ha marcado como favoritas (guardadas en estado de componente por ahora).
+
+#### /profile — Perfil
+
+- Página estática con un perfil de usuario simulado y un resumen con el número de favoritos guardados.
+
+### Comportamiento de la búsqueda
+
+- La búsqueda debe filtrar las experiencias cuyo título coincida con el término buscado. 
+
+- Usa una regex case-insensitive para esto: algo como /term/i. El filtro por categoría y destino debe funcionar de forma independiente y combinarse con la búsqueda.
+
+### Dataset
+
+- Genera un array de 100 objetos de experiencia. Cada objeto debe tener como mínimo: id, title, description, category (una de: Adventure, Culture, Food, Wellness, Nature), destination (ciudad + país), price, rating e imageUrl (cualquier placeholder). Guárdalo como un fichero TypeScript local.
+
+### Favoritos
+
+- Un icono de corazón en cada tarjeta debe activar o desactivar la experiencia en la lista de favoritos del usuario. 
+
+- Los favoritos se guardan en un useState de nivel superior y se pasan hacia abajo como props donde sea necesario. No se requiere persistencia por ahora.
+
+#### Design References
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
