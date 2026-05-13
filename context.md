@@ -5,6 +5,7 @@
 - Tailwind CSS.
 - React 19.
 - Next.js.
+- Una aplicación multipágina donde los usuarios puedan explorar, buscar y filtrar experiencias sin recargar la página.
 - Dataset será un array de 100 experiencias.
 - La búsqueda y los filtros vivan en la URL para que los usuarios puedan compartir enlaces como /experiences?search=vela&category=adventure&destination=Croatia y aterrizar directamente en una vista prefiltrada.
 - No usar ninguna librería externa de gestión de estado (Redux, Zustand, etc.). Todo el estado debe vivir en el useState nativo de React y pasarse mediante props o custom hooks.
