@@ -8,6 +8,7 @@
 - Dataset será un array de 100 experiencias.
 - La búsqueda y los filtros vivan en la URL para que los usuarios puedan compartir enlaces como /experiences?search=vela&category=adventure&destination=Croatia y aterrizar directamente en una vista prefiltrada.
 - No usar ninguna librería externa de gestión de estado (Redux, Zustand, etc.). Todo el estado debe vivir en el useState nativo de React y pasarse mediante props o custom hooks.
+- Mobile first.
 
 ### Páginas requeridas
 
@@ -50,3 +51,11 @@
 - Un icono de corazón en cada tarjeta debe activar o desactivar la experiencia en la lista de favoritos del usuario. 
 
 - Los favoritos se guardan en un useState de nivel superior y se pasan hacia abajo como props donde sea necesario. No se requiere persistencia por ahora.
+
+#### Design References
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
